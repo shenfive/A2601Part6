@@ -12,10 +12,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newView = MyView(frame: CGRect(x: 100, y: 100, width: 300, height: 200))
-        self.view.addSubview(newView)
+//        let newView = MyView(frame: CGRect(x: 100, y: 100, width: 300, height: 200))
+//        self.view.addSubview(newView)
+        print(getNetworkStatus())
         
     }
+    func getNetworkStatus()->Bool{
+            if Reachability(hostName: "www.apple.com")?.currentReachabilityStatus().rawValue == 0 {
+                return false
+            }else{
+                return true
+            }
+        }
 
 
 }
